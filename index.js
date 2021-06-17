@@ -15,7 +15,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
-    console.log('request', req.url, req.body, req.method);
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-token");
     if(req.method === 'OPTIONS') {
@@ -26,10 +25,8 @@ app.use(function(req, res, next) {
     }
 });
 
-app.use("/api/users", userRoute);
 app.use('/api', transRouter);
 app.get('/api/transporters/:id', (req, res) => {
-    console.log(req.params)
     const transporterId = req.params.id;
     const transporter = data.transporters.find(x => x._id === transporterId);
     if (transporter)
