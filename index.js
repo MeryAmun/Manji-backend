@@ -26,7 +26,10 @@ app.use(function(req, res, next) {
 });
 
 app.use("/api/users", userRoute);
-app.use('/api', transRouter);
+//app.use('/api', transRouter);
+app.get('/api/transporters', (req, res) => {
+    res.send(data.transporters);
+});
 app.get('/api/transporters/:id', (req, res) => {
     const transporterId = req.params.id;
     const transporter = data.transporters.find(x => x._id === transporterId);
