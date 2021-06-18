@@ -32,6 +32,7 @@ router.post("/register", async (req, res) => {
     const user = new User({
         name: req.body.name,
         email: req.body.email,
+        telephone: req.body.telephone,
         password: req.body.password
     });
 
@@ -41,6 +42,7 @@ router.post("/register", async (req, res) => {
             _id: newUser.id,
             name: newUser.name,
             email: newUser.email,
+            telephone: newUser.telephone,
             isAdmin: newUser.isAdmin,
             token: getToken(newUser)
         })
@@ -54,6 +56,7 @@ router.get('/createadmin', async (req, res) => {
         const user = new User({
             name: "Cheche",
             email: "nawe@gmail.com",
+            telephone:677972126,
             password: "nawe1234",
             isAdmin: true
         });
