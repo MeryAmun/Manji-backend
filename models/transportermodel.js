@@ -5,10 +5,16 @@ const Schema = mongoose.Schema;
 const transporterSchema = new Schema({
     name: {type: String, required: true},
     category: {type: String, required: true, dropDups: true},
-    image: {type: String, required: true},
+    idNumber: {type: Number, required: true},
+    passImage: {type: String, required: true},
+    idImageF: {type: String, required: true},
+    idImageB: {type: String, required: true},
+    autoImage: {type: String, required: true},
+    fullImage: {type: String, required: true},
     city: {type: String, required: true},
     telephone: {type: Number, required: true},
     location: {type: String, required: true},
+    address: {type: String, required: true},
     rating: {type: Number, default:0, required: true},
     
 });

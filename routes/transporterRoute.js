@@ -22,10 +22,16 @@ router.post("/", async (req, res) =>{
     const transporter = new Transporter({
 name: req.body.name,
 category: req.body.category,
-image: req.body.image,
+idNumber: req.body.idNumber,
+passImage: req.body.passImage,
+idImageF: req.body.idImageF,
+idImageB: req.body.idImageB,
+autoImage: req.body.autoImage,
+fullImage: req.body.fullImage,
 city: req.body.city,
 telephone: req.body.telephone,
 location: req.body.location,
+address: req.body.address,
 rating: req.body.rating,
     });
 });
