@@ -1,22 +1,49 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
 
-const transporterSchema = new Schema({
-    name: {type: String, required: true},
-    category: {type: String, required: true, dropDups: true},
-    idNumber: {type: Number, required: true},
-    passImage: {type: String, required: true},
-    idImageF: {type: String, required: true},
-    idImageB: {type: String, required: true},
-    autoImage: {type: String, required: true},
-    fullImage: {type: String, required: true},
-    city: {type: String, required: true},
-    telephone: {type: Number, required: true},
-    location: {type: String, required: true},
-    address: {type: String, required: true},
-    rating: {type: Number, default:0, required: true},
+
+const transporterSchema = new mongoose.Schema({
+    name: {
+        type: String
+    },
+    category: {
+        type: String, dropDups: true
+    },
+    idNumber: {
+        type: Number,  unique: true,
+    },
+    passImage: {
+        type: String,  unique: true,
+    },
+    idImageF: {
+        type: String,  unique: true,
+    },
+    idImageB: {
+        type: String, unique: true,
+    },
+    autoImage: {type: String,  unique: true,
+    },
+    fullImage: {
+        type: String,  unique: true,
+    },
+    city: {
+        type: String
+    },
+    telephone: {
+        type: Number,  unique: true,
+    },
+    location: {
+        type: String
+    },
+    address: {
+        type: String
+    },
+    availability: {
+        type: Boolean, default:false
+    },
+    rating: {type: Number, default:0},
     
 });
 const transporterModel = mongoose.model("Transporter", transporterSchema);
+
 module.exports = transporterModel;
